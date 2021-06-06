@@ -1,7 +1,7 @@
 export function selectVideos(state) {
-  return state.videos;
+  return state.videoSearch.videos;
 }
 
 export function selectVideosAmont(state) {
-  return state.listAmount;
+  return state.videoSearch.listAmount;
 }

@@ -1,7 +1,8 @@
 import { all, put, takeEvery } from 'redux-saga/effects';
 import youtube from '../apis/youtube';
 
-export function* searchVideos({ query, maxResults }) {
+export function* fetchVideos(action) {
+  const { query, videosAmount: maxResults } = action.payload;
   const response = yield youtube.get('/search', {
     params: {
       q: query,
@@ -9,14 +10,13 @@ export function* searchVideos({ query, maxResults }) {
       maxResults,
     },
   });
-  yield put({ type: 'LIST_VIDEOS', payload: { items: response.items } });
+  yield put({ type: 'LIST_VIDEOS', payload: { items: response.data.items } });
 }
 
-// Our watcher Saga: spawn a new incrementAsync task on each INCREMENT_ASYNC
-export function* watchSearchVideos() {
-  yield takeEvery('LIST_VIDEOS', searchVideos);
+export function* watchFetchVideos() {
+  yield takeEvery('FETCH_VIDEOS', fetchVideos);
 }
 
 export default function* rootSaga() {
-  yield all([watchSearchVideos()]);
+  yield all([watchFetchVideos()]);
 }

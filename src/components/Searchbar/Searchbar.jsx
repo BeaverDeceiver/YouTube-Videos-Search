@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchVideos } from '../../store/actions/actions';
+import { selectVideosAmont } from '../../store/selectors/selectors';
 
 export function Searchbar() {
   const dispatch = useDispatch();
   const [query, setQuery] = useState('');
+  const videosAmount = useSelector(selectVideosAmont);
 
   return (
     <div>
@@ -15,7 +18,7 @@ export function Searchbar() {
       />
       <button
         onClick={() => {
-          dispatch(/*sagas action*/);
+          dispatch(fetchVideos({ query, videosAmount }));
         }}
       >
         Search

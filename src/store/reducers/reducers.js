@@ -2,7 +2,7 @@ import { handleActions } from 'redux-actions';
 
 import { listVideos } from '../actions/actions';
 
-const defaultState = { listAmount: 0, videos: [] };
+const defaultState = { listAmount: 20, videos: [] };
 
 const videoSearch = handleActions(
   {
