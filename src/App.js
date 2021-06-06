@@ -6,10 +6,10 @@ import { VideoList } from './components/VideoList/VideoList';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header container">
         <Searchbar />
       </header>
-      <main>
+      <main className="container">
         <VideoList />
       </main>
     </div>
