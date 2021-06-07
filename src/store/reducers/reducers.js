@@ -2,13 +2,13 @@ import { handleActions } from 'redux-actions';
 
 import { listVideos } from '../actions/actions';
 
-const defaultState = { listAmount: 20, videos: [] };
+const defaultState = { listAmount: 10, videos: [] };
 
 const videoSearch = handleActions(
   {
     [listVideos]: (state, action) => {
       return {
-        listAmount: state.listAmount + 20,
+        listAmount: state.listAmount + 10,
         videos: action.payload.items,
       };
     },
