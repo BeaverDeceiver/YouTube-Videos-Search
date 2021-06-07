@@ -10,8 +10,8 @@ export function VideoList() {
     <div>
       <ul>
         {videos.map((video) => (
-          <li key={video.id.videoId}>
-            <VideoItem className="video-list__item" video={video} />
+          <li key={video.id.videoId} className="video-list__item">
+            <VideoItem video={video} />
           </li>
         ))}
       </ul>

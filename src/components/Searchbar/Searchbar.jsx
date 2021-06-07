@@ -9,20 +9,21 @@ export function Searchbar() {
   const videosAmount = useSelector(selectVideosAmont);
 
   return (
-    <div>
+    <>
       <input
         className="search__input"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder="Your video search"
+        placeholder="Search"
       />
       <button
+        className="search__button"
         onClick={() => {
           dispatch(fetchVideos({ query, videosAmount }));
         }}
       >
         Search
       </button>
-    </div>
+    </>
   );
 }

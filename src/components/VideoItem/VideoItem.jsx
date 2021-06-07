@@ -10,9 +10,13 @@ export function VideoItem(props) {
         alt={video.snippet.description}
       />
       <div className="video__content">
-        <div className="header ">{video.snippet.title}</div>
+        <h1 className="video__title">{video.snippet.title}</h1>
+        <h3 className="video__publishedAt">
+          {new Date(video.snippet.publishedAt).toLocaleDateString()}
+        </h3>
+        <h3 className="video__channel">{video.snippet.channelTitle}</h3>
+        <h3 className="video__description">{video.snippet.description}</h3>
       </div>
     </>
   );
 }
-// export default VideoItem;

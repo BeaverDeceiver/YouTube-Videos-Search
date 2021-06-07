@@ -1,0 +1,16 @@
+@import url('./video.css');
+@import url('header.css');
+@import url('video-list.css');
+
+.app {
+  font-family: 'Roboto', 'sans-serif';
+}
+
+.container {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.rendered-area {
+  margin-top: 56px;
+}

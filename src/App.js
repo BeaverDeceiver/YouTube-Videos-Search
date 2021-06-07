@@ -1,16 +1,20 @@
 import React from 'react';
 import { Searchbar } from './components/Searchbar/Searchbar';
-import './App.css';
+import './styles/App.css';
 import { VideoList } from './components/VideoList/VideoList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header container">
-        <Searchbar />
+    <div className="app">
+      <header className="app-header">
+        <div className="app-header__inner-container container">
+          <Searchbar />
+        </div>
       </header>
-      <main className="container">
-        <VideoList />
+      <main className="main">
+        <section className="container">
+          <VideoList />
+        </section>
       </main>
     </div>
   );

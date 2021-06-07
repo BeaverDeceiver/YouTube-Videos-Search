@@ -1,0 +1,42 @@
+.video__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.video__image {
+  display: block;
+
+  max-width: 360px;
+  margin-right: 16px;
+}
+
+.video__title {
+  margin: 0;
+
+  letter-spacing: normal;
+
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.video__channel {
+  margin: 0;
+  padding: 12px 0;
+
+  color: #aaaaaa;
+
+  line-height: normal;
+}
+
+.video__publishedAt,
+.video__description {
+  margin: 0;
+
+  letter-spacing: 0.3px;
+
+  color: #aaaaaa;
+
+  font-size: 12px;
+  line-height: 18px;
+}
