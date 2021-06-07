@@ -11,7 +11,7 @@ function App() {
           <Searchbar />
         </div>
       </header>
-      <main className="main">
+      <main className="rendered-area">
         <section className="container">
           <VideoList />
         </section>
