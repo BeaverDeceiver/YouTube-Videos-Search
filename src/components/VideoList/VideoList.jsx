@@ -1,42 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { VideoItem } from '../VideoItem/VideoItem';
 import {
   selectQuery,
   selectStatus,
   selectVideos,
-  selectVideosAmont,
 } from '../../store/selectors/selectors';
 import _ from 'lodash';
-import { fetchVideos, setStatus } from '../../store/actions/actions';
+import { fetchMoreVideos, setStatus } from '../../store/actions/actions';
+import { STATE_STATUS_BUSY } from '../../constants/stateConstants';
 
 export function VideoList() {
   const videos = useSelector(selectVideos);
   const query = useSelector(selectQuery);
-  const videosAmount = useSelector(selectVideosAmont);
   const status = useSelector(selectStatus);
 
-  const dispatch = useDispatch(fetchVideos);
-
-  document.addEventListener('scroll', _.throttle(handleScroll, 200));
+  const dispatch = useDispatch();
 
   function handleScroll(e) {
-    let element = e.target.documentElement;
-
+    let element = e.target;
     if (
       status === 'idle' &&
       element.scrollHeight - element.scrollTop === element.clientHeight
     ) {
-      dispatch(setStatus('busy'));
-      dispatch(fetchVideos({ query, videosAmount, listMore: true }));
+      console.log('firing');
+      console.log(`query: ${query}`);
+      console.log(`status: ${status}`);
+      dispatch(setStatus({ status: STATE_STATUS_BUSY }));
+      dispatch(fetchMoreVideos({ query }));
+      console.log(`status(more after): ${status}`);
     }
   }
 
   return (
     <>
-      <ul>
-        {videos.map((video) => (
-          <li key={video.id.videoId} className="video-list__item">
+      <ul onScroll={handleScroll}>
+        {videos.map((video, index) => (
+          <li key={video.id.videoId + index} className="video-list__item">
             <VideoItem video={video} />
           </li>
         ))}
