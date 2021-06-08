@@ -50,8 +50,6 @@ export function* fetchMoreVideos(action) {
     },
   });
 
-  console.log(`token: ${response.data.nextPageToken}`);
-
   yield put(
     listMoreVideos({
       items: response.data.items,
