@@ -1,7 +1,7 @@
 import React from 'react';
-import { Searchbar } from './components/Searchbar/Searchbar';
+import { Searchbar } from './components/Searchbar/Searchbar.jsx';
 import './styles/App.css';
-import { VideoList } from './components/VideoList/VideoList';
+import { VideoList } from './components/VideoList/VideoList.jsx';
 
 function App() {
   return (
