@@ -1,23 +1,30 @@
 import { handleActions } from 'redux-actions';
+import { STATE_STATUS_IDLE } from '../../constants/stateConstants';
 
 import { listVideos, listMoreVideos, setStatus } from '../actions/actions';
 
-const defaultState = { query: '', listAmount: 10, videos: [], status: 'idle' };
+const defaultState = {
+  query: '',
+  status: STATE_STATUS_IDLE,
+  videos: [],
+  nextPageToken: '',
+};
 
 const videoSearch = handleActions(
   {
     [listVideos]: (state, action) => {
       return {
+        ...state,
         query: action.payload.query,
-        listAmount: 10,
         videos: action.payload.items,
+        nextPageToken: action.payload.nextPageToken,
       };
     },
     [listMoreVideos]: (state, action) => {
       return {
         ...state,
-        listAmount: state.listAmount + 10,
-        videos: action.payload.items,
+        videos: state.videos.concat(action.payload.items),
+        nextPageToken: action.payload.nextPageToken,
       };
     },
     [setStatus]: (state, action) => {
