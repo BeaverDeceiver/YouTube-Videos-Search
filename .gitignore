@@ -24,3 +24,4 @@ yarn-error.log*
 src/apis/dummy.js
 .csscomb.json
 .env
+dist
